@@ -45,21 +45,27 @@ public class Target extends GraphicsApp {
         drawBackground(BACKGROUND_COLOR);
     }
 
+    /*
+     * Draws a dart target
+     */
     private void drawDartTarget() {
-        Color ringColor;
-        int radius;
-        Circle ring;
-
         for (int i = NUM_RINGS; i > 0; i--) {
-            if (i % 2 == 0) {
-                ringColor = RING_COLOR_EVEN;
-            } else {
-                ringColor = RING_COLOR_UNEVEN;
-            }
+            Color ringColor = getColor(i);
+            drawRing(i, ringColor);
+        }
+    }
 
-            radius = (INITIAL_RING_WIDTH) + (i * INITIAL_RING_WIDTH);
-            ring = new Circle(HORIZONTAL_CENTER, VERTICAL_CENTER, radius, ringColor);
-            ring.draw();
+    private void drawRing(int ringIndex, Color ringColor) {
+        int radius = (INITIAL_RING_WIDTH) + (ringIndex * INITIAL_RING_WIDTH);
+        Circle ring = new Circle(HORIZONTAL_CENTER, VERTICAL_CENTER, radius, ringColor);
+        ring.draw();
+    }
+
+    private Color getColor(int i) {
+        if (i % 2 == 0) {
+            return RING_COLOR_EVEN;
+        } else {
+            return RING_COLOR_UNEVEN;
         }
     }
 }
