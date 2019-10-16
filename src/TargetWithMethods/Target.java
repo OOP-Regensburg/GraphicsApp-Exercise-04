@@ -7,7 +7,7 @@ import de.ur.mi.oop.graphics.Circle;
 
 public class Target extends GraphicsApp {
 
-    /* constants for canvas setup */
+    /* Konstanten für Canvas-Aufbau */
     private static final int CANVAS_HEIGHT = 800;
     private static final int CANVAS_WIDTH = 800;
     private static final Color BACKGROUND_COLOR = Colors.WHITE;
@@ -15,14 +15,15 @@ public class Target extends GraphicsApp {
     private static final int HORIZONTAL_CENTER = CANVAS_WIDTH / 2;
     private static final int VERTICAL_CENTER = CANVAS_HEIGHT / 2;
 
-    /* properties for dart target */
+    /* Eigenschaften für die Wurfpfeil-Zielscheibe */
     private static Color RING_COLOR_UNEVEN = Colors.RED;
     private static Color RING_COLOR_EVEN = Colors.WHITE;
     private static int NUM_RINGS = 15;
     private static int INITIAL_RING_WIDTH = 10;
 
     /*
-     * This method is called once when the program is started.
+     * Die initialize-Methode wird einmalig zum Start des Programms
+     * aufgerufen.
      */
 
     @Override
@@ -31,7 +32,8 @@ public class Target extends GraphicsApp {
     }
 
     /*
-     * This method is called repeatedly while the program is running.
+     * Die draw-Methode wird so lange wiederholt aufgerufen, bis das Programm
+     * beendet wird.
      */
 
     @Override
