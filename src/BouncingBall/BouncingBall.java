@@ -19,10 +19,10 @@ public class BouncingBall extends GraphicsApp {
     private static final float INITIAL_YSPEED = 0;
     private static final float GRAVITY = 0.15f;
 
-    /* Private instance variables */
-    private Circle ball; /* The ball object */
-    private float dx; /* Velocity delta in the x direction */
-    private float dy; /* Velocity delta in the y direction */
+    /* Private Instanz-Variablen */
+    private Circle ball;
+    private float dx; /* Geschwindigkeits-Delta in X-Richtung */
+    private float dy; /* Geschwindigkeits-Delta in Y-Richtung */
 
     /*
      * Die initialize-Methode wird einmalig zum Start des Programms
@@ -61,7 +61,7 @@ public class BouncingBall extends GraphicsApp {
         }
     }
 
-    // Update, move and draw the ball
+    // Aktualisiere, bewege und zeichne den Ball
     private void moveBall() {
         dy += GRAVITY;
         ball.move(dx, dy);
@@ -69,21 +69,20 @@ public class BouncingBall extends GraphicsApp {
     }
 
     /*
-     * Determine if collision with floor, update velocities and location as
-     * appropriate.
+     * Bestimme, ob eine Kollision mit dem Boden stattfindet.
+     * Wenn ja, aktualisiere die Geschwindigkeit und Ort des Balls.
      */
     private void checkForCollision() {
-        // if ball hits the floor
+        // Falls der Ball den Boden trifft
         if (ball.getYPos() + BALL_RADIUS > getHeight()) {
-            // reverse y-direction to bounce upwards and reduce speed
+            // Kehre y-Richtung um, um nach oben zu springen.
+            // Reduziere dabei die Geschwindigkeit.
             dy = -dy * SPEED_REDUCTION_BOUNCE;
 
-            // assume bounce will move ball an amount above the
-            // floor equal to the amount it would have dropped
-            // below the floor.
+            // Wir nehmen an, der Ball bewegt sich die Strecke nach oben
+            // um die er sich unter den Boden bewegt hätte.
             float diff = ball.getYPos() - (getHeight() - BALL_RADIUS);
             ball.move(0, -2 * diff);
-            ball.draw();
         }
     }
 }

@@ -47,9 +47,6 @@ public class Target extends GraphicsApp {
         drawBackground(BACKGROUND_COLOR);
     }
 
-    /*
-     * Draws a dart target
-     */
     private void drawDartTarget() {
         for (int i = NUM_RINGS; i > 0; i--) {
             Color ringColor = getColor(i);
